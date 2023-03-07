@@ -1,1 +1,8 @@
-.DS_Store
+
+Heraldo/iOS/Heraldo/\.DS_Store
+
+\.DS_Store
+
+*.xcuserstate
+
+Heraldo/iOS/Heraldo/Heraldo\.xcodeproj/xcuserdata/dgarcia\.xcuserdatad/xcschemes/xcschememanagement\.plist
