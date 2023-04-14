@@ -11,7 +11,7 @@ import SwiftUI
 struct TCA_Project1App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(appState: .init())
+            ContentView(store: Store(initialValue: AppState()))
         }
     }
 }
