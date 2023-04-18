@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F304B64629ED4C800066AAB4 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304B64529ED4C800066AAB4 /* Operators.swift */; };
 		F307121F29B72C9400E32ED8 /* TCA_Project1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307121E29B72C9400E32ED8 /* TCA_Project1App.swift */; };
 		F307122129B72C9400E32ED8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F307122029B72C9400E32ED8 /* ContentView.swift */; };
 		F307122329B72C9500E32ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F307122229B72C9500E32ED8 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F304B64529ED4C800066AAB4 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		F307121B29B72C9400E32ED8 /* TCA-Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TCA-Project1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F307121E29B72C9400E32ED8 /* TCA_Project1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_Project1App.swift; sourceTree = "<group>"; };
 		F307122029B72C9400E32ED8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				F307122229B72C9500E32ED8 /* Assets.xcassets */,
 				F307122429B72C9500E32ED8 /* TCA_Project1.entitlements */,
 				F307122529B72C9500E32ED8 /* Preview Content */,
+				F304B64529ED4C800066AAB4 /* Operators.swift */,
 			);
 			path = "TCA-Project1";
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F30AD76A29E97CAD00F4D667 /* PrimeSheetView.swift in Sources */,
+				F304B64629ED4C800066AAB4 /* Operators.swift in Sources */,
 				F30AD76D29E97DA600F4D667 /* FavoritePrimesView.swift in Sources */,
 				F307122129B72C9400E32ED8 /* ContentView.swift in Sources */,
 				F307121F29B72C9400E32ED8 /* TCA_Project1App.swift in Sources */,

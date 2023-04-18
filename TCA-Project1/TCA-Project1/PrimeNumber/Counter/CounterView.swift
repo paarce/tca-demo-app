@@ -7,20 +7,25 @@
 
 import SwiftUI
 
+enum CounterAction {
+    case incrTapped
+    case decrTapped
+}
+
 struct CounterView: View {
 
-    @ObservedObject var store: Store<AppState>
+    @ObservedObject var store: Store<AppState, AppAction>
     @State var isPrimeModalShow = false
     @State var alertPrime: PrimeAlert?
 
     var body: some View {
         VStack {
             HStack {
-                Button(action: {store.value.count -= 1}) {
+                Button(action: {store.send(action: .counter(.decrTapped))}) {
                     Text("-")
                 }
                 Text("\(store.value.count)")
-                Button(action: {store.value.count += 1}) {
+                Button(action: {store.send(action: .counter(.incrTapped))}) {
                     Text("+")
                 }
             }
@@ -75,6 +80,11 @@ extension CounterView {
 
 struct CounterView_Previews: PreviewProvider {
     static var previews: some View {
-        CounterView(store: Store(initialValue: AppState()))
+        ContentView(
+            store: Store(
+                initialValue: AppState(),
+                reducer: { (_, _) in }
+            )
+        )
     }
 }

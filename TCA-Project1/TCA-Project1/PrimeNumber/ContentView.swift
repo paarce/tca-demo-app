@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @ObservedObject var store: Store<AppState>
+    @ObservedObject var store: Store<AppState, AppAction>
 
     var body: some View {
         NavigationView {
@@ -28,8 +28,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: Store(initialValue: AppState()))
+        ContentView(
+            store: Store(
+                initialValue: AppState(),
+                reducer: { (_, _) in }
+            )
+        )
     }
 }
-
-

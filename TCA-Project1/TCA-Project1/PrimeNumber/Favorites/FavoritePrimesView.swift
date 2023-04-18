@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+enum FavoritePrimeAction {
+    case delete(IndexSet)
+}
 
 struct FavoritesListView: View {
 
-    @ObservedObject var store: Store<AppState>
+    @ObservedObject var store: Store<AppState, AppAction>
 
     var body: some View {
         List {
@@ -18,9 +21,7 @@ struct FavoritesListView: View {
                 Text("\($0)")
             }
             .onDelete { indexes in
-                for index in indexes {
-                    store.value.favoritePrimes.remove(at: index)
-                }
+                store.send(action: .favoritePrime(.delete(indexes)))
             }
         }
         .navigationTitle("Favorite primes")
@@ -29,6 +30,11 @@ struct FavoritesListView: View {
 
 struct FavoritePrimesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesListView(store: Store(initialValue: AppState()))
+        ContentView(
+            store: Store(
+                initialValue: AppState(),
+                reducer: { (_, _) in }
+            )
+        )
     }
 }

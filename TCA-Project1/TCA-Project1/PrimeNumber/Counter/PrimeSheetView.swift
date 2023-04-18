@@ -12,25 +12,26 @@ struct PrimeAlert: Identifiable {
   var id: Int { self.prime }
 }
 
+enum PrimeAction {
+    case savePrime
+    case removePrime
+}
+
 struct PrimeSheetView: View {
 
-    @ObservedObject var store: Store<AppState>
+    @ObservedObject var store: Store<AppState, AppAction>
 
     var body: some View {
         VStack {
             if isPrime(store.value.count) {
                 Text("\(store.value.count) is prime")
 
-                if store.value.currentCountIsFav() {
-                    Button(action: {
-                        store.value.favoritePrimes.removeAll(where: { $0 == self.store.value.count })
-                    }) {
+                if store.value.currentCountIsFav {
+                    Button(action: { store.send(action: .prime(.removePrime)) }) {
                         Text("Remove from favorites")
                     }
                 } else {
-                    Button(action: {
-                        store.value.favoritePrimes.append(self.store.value.count)
-                    }) {
+                    Button(action: { store.send(action: .prime(.savePrime)) }) {
                         Text("Save to favorites primes")
                     }
                 }

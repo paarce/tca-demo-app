@@ -8,18 +8,24 @@
 import SwiftUI
 import Combine
 
-final class Store<Value: ObservableObject>: ObservableObject {
+final class Store<Value: ObservableObject, Action>: ObservableObject {
 
+    let reducer: (inout Value, Action) -> Void
     private var cancellables: Set<AnyCancellable> = []
     var value: Value
 
-    init(initialValue: Value) {
+    init(initialValue: Value, reducer: @escaping (inout Value, Action) -> Void) {
         self.value = initialValue
+        self.reducer = reducer
 
         initialValue.objectWillChange
           .map { _ in } // ignore actual values
           .sink(receiveValue: self.objectWillChange.send)
           .store(in: &cancellables)
+    }
+
+    func send(action: Action) {
+        reducer(&self.value, action)
     }
 }
 
@@ -29,7 +35,7 @@ class AppState: ObservableObject {
     @Published var loggedInUser: User?
     @Published var activity: Activity?
 
-    func currentCountIsFav() -> Bool {
+    var currentCountIsFav: Bool {
         favoritePrimes.contains(count)
     }
 
